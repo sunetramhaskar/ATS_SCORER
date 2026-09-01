@@ -1,4 +1,4 @@
-# AI Resume ATS Scorer
+#ATS_SCORER
 
 An AI-powered Applicant Tracking System (ATS) that analyzes resumes against job descriptions and evaluates how well a candidate's resume matches the target role.
 
