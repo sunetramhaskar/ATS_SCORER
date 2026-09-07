@@ -52,6 +52,8 @@ async def save_analysis(user_id: str, filename: str, analysis_result: Dict) -> O
                 return inserted_id
             return None
     except Exception as exc:
+        logger.error(f"Supabase status: {response.status_code}")
+        logger.error(f"Supabase response: {response.text}")
         logger.error(f"Failed to save analysis to Supabase: {exc}")
         return None
 

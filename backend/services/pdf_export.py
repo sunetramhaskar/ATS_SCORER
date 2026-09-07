@@ -1,5 +1,9 @@
 import io
 import logging
+import os
+
+if os.name == "nt":
+    os.add_dll_directory(r"C:\msys64\ucrt64\bin")
 
 try:
     from weasyprint import HTML, CSS

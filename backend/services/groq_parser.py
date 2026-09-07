@@ -7,7 +7,9 @@ from groq import Groq
 
 logger = logging.getLogger('ats_resume_scorer')
 
-GROQ_MODEL='llama-3.3b-70b-versatile'
+#GROQ_MODEL='-3.llama3b-70b-versatile'
+#GROQ_MODEL='llama-3.3-70b-versatile'
+GROQ_MODEL='openai/gpt-oss-20b'
 
 _client=None
 
@@ -115,7 +117,8 @@ def parse_resume(raw_text: str)->Dict:
     raw_response=_call_groq(client, RESUME_SYSTEM_PROMPT, prompt)
     result=_try_parse_json(raw_response)
 
-    if result is None:
+    #added none
+    if result is not None:
         return _validate_resume_result(result)
     
 

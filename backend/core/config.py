@@ -6,8 +6,14 @@ from pathlib import Path
 # silently under uvicorn reload, leaving env vars unset.
 try:
     from dotenv import load_dotenv
-    _ENV_PATH = Path(__file__).resolve().parents[2] / '.env'
+    _ENV_PATH = Path(__file__).resolve().parents[2] / 'backend' /'.env'
     load_dotenv(_ENV_PATH)
+
+    print("ENV PATH:", _ENV_PATH)
+    print("ENV EXISTS:", _ENV_PATH.exists())
+    print("SUPABASE URL LOADED:", bool(os.getenv("SUPABASE_URL")))
+    print("SUPABASE KEY LOADED:", bool(os.getenv("SUPABASE_KEY")))
+    
 except ImportError:
     pass
 
